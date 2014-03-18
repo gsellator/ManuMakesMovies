@@ -1,0 +1,29 @@
+{
+    "name": "ManuMakesMovies",
+    "version": "0.0.2",
+    "description": "ManuMakesMovies corporate website",
+    "homepage": "http://manumakesmovies.com",
+    "author": {
+        "name": "Adrien Gsell",
+        "email": "adrien@gsell.me",
+        "url": "http://gsell.me"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/gsellator/ManuMakesMovies"
+    },
+    "dependencies": {
+        "forever": "~0.10.11",
+        "express": "~3.4.8",
+        "mongoose": "~3.8.5",
+        "ejs": "~0.8.5",
+        "request": "~2.34.0"
+    },
+    "devDependencies": {
+        "grunt-contrib-clean": "~0.5.0",
+        "grunt-env": "~0.4.0",
+        "grunt-bump": "0.0.13",
+        "grunt-contrib-copy": "~0.4.1",
+        "grunt-sftp-deploy": "0.0.9"
+    }
+}

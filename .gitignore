@@ -1,0 +1,5 @@
+node_modules/
+public/js/bower_components/
+.ftppass
+pkg/
+.bowerrc

@@ -1,0 +1,15 @@
+{
+  "name": "ManuMakesMovies",
+  "version": "0.0.1",
+  "homepage": "http://manumakesmovies.com",
+  "authors": [
+    "Adrien Gsell"
+  ],
+  "description": "ManuMakesMovies corporate website",
+  "license": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "jQuery-One-Page-Nav": "~3.0.0"
+  }
+}
