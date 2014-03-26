@@ -1,13 +1,13 @@
 /*global module:false*/
 module.exports = function(grunt) {
-    
+
     grunt.initConfig({
-        
+
         pkg: grunt.file.readJSON('package.json'),
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
-        
+
         clean: ["pkg/"],
-        
+
         env : {
             options : {
                 /* Shared Options Hash */
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
                 NODE_ENV : 'PRODUCTION'   
             }
         },
-        
+
         bump: {
             options: {
                 commit: false,
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
                 push: false
             }
         },
-        
+
         copy: {
             package: {
                 src: 'package.json',
@@ -41,20 +41,36 @@ module.exports = function(grunt) {
                 src: 'app.js',
                 dest: 'pkg/',
             },
+            server2: {
+                src: 'views/**/*',
+                dest: 'pkg/',
+            },
             server3: {
-                src: 'models/*',
+                src: 'public/css/*',
                 dest: 'pkg/',
             },
             server4: {
-                src: 'public/**/*',
+                src: 'public/favicon.ico',
                 dest: 'pkg/',
             },
             server5: {
-                src: 'views/**/*',
+                src: 'public/favicon.png',
+                dest: 'pkg/',
+            },
+            server6: {
+                src: 'public/img/**/*',
+                dest: 'pkg/',
+            },
+            server7: {
+                src: 'public/js/bower_components/jquery/dist/jquery.min.js',
+                dest: 'pkg/',
+            },
+            server8: {
+                src: 'public/js/bower_components/jQuery-One-Page-Nav/jquery.nav.js',
                 dest: 'pkg/',
             }
         },
-        
+
         'sftp-deploy': {
             prod: {
                 auth: {
@@ -68,12 +84,12 @@ module.exports = function(grunt) {
             }
         },
     });
-    
+
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-sftp-deploy');
-    
+
     grunt.registerTask('prod', ['env:prod', 'clean', 'bump', 'copy', 'sftp-deploy:prod']);
 };

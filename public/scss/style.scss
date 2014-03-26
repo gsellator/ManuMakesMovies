@@ -3,31 +3,34 @@
 // RAZ
 h1, h2{
     font-family: 'futura-pt', sans-serif;
-    font-weight: normal;
+    font-weight: 100;
     text-transform: uppercase;
 }
 
 *{
     font-family: 'futura-pt', sans-serif;
-    font-weight: normal;
-    //box-sizing: border-box;
-    font-size: 1.2vw;
+    font-weight: 100;
+    box-sizing: border-box;
+    font-size: 18px;
+    @media (max-width: $break-large){font-size: 1.8vw;}
+    @media (max-width: $break-medium){font-size: 2.4vw;}
+    @media (max-width: $break-small){font-size: 5vw;}
+    @media (max-width: $break-xsmall){font-size: 12px;}
 }
 
 html, body, input, button, select, textarea, table, h3, h4, h5, h6 {
     font-family: 'futura-pt', sans-serif;
-    font-weight: normal;
+    font-weight: 100;
     color: $dark-grey;
-    font-size: 160px;
     margin: 0;
 }
 
 ::selection {
     color: #eee;
-    background-color: $medium-green;
+    background-color: $dark-green;
 }
 
-a { color: $light-green; text-decoration: none;}
+a { color: $dark-green; text-decoration: none;}
 
 
 
@@ -37,7 +40,7 @@ nav{
     top: 0;
     right: 0;
     z-index: 1;
-    
+
     display: block;
 
     list-style: none;
@@ -46,63 +49,371 @@ nav{
     padding: 0;
     text-align: right;
     width: 100%;
-    border-bottom: solid $medium-green 1px;
+    border-bottom: solid $dark-green 1px;
 
     ul{
         position: absolute;
         bottom: 0;
         margin: 0;
         padding: 0;
-        width: 100%;
+        width: 60%;
+        right: 0;
 
         li{
             display: inline-block;
             padding: 0 1vw;
+            line-height: 3vw;
 
             &.current{
-                background-color: $medium-green;
-                color: white;
+                background-color: $dark-green;
+                a{color: white;}
             }
         }
     }
 }
 
-.maintitle{
+.headtitle{
     float: left;
     padding-left: 0.7vw;
 
-    h1{
-        font-size: 6.2vw;
-        line-height: 5vw;
+    h1, h1 span{
+        font-size: 2.2vw;
+        line-height: 3vw;
         margin: 0;
     }
 }
 
+.maintitle span{
+    font-size: 6.2vw;
+    line-height: 5vw;
+    margin: 0;
+}
 
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 0;
+    height: 0;
+}
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.p1{color: $dark-green;}
+.p2{color: $medium-green;}
+.p3{color: $light-green;}
+
+
+.form{
+    margin-top: 10px;
+    text-align: center;
+    padding: 20px;;
+
+    h1{
+        color: white;
+        margin: 0;
+        font-size: 32px;
+    }
+
+    h4{
+        color: white;
+    }
+
+    .field{
+        position: relative;
+        margin: 0 10%;
+        text-align: left;
+
+        input, textarea{
+            margin: 6px 0;
+            padding: 8px;
+            width: 100%;
+            max-width: 100%;
+            font-size: 19px;
+            color: white;
+            background: transparent;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+
+            &:focus {
+                outline: 0;
+                background-color: rgba(255, 255, 255, 0.2);
+                border: none;
+            }
+        }
+
+        input{
+            height: 40px;
+        }
+    }
+
+    .input-underline{
+        height: 1px; 
+        background-color: rgb(206, 214, 218);
+        background-color: $grey-1;
+    }
+
+    .btn{
+        margin-top: 10px;
+    }
+}
+
+.btn {
+
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 12px;
+    height: 38px;
+    line-height: 34px;
+    min-width: 88px;
+    border-radius: 4px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: white;
+    border: 1px solid $grey-6;
+    background-color: $grey-6;
+    border-color: $grey-6;
+    &:disabled{opacity: 0.4;}
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        border-color: $grey-6;
+        color: white;
+        text-decoration: none;
+        outline:0; 
+        &:disabled{background-color: $grey-6;}
+    }
+
+    &:active{background-color: $medium-grey;}
+
+    &.dark{
+        background-color: $dark-grey;
+        border-color: $dark-grey;
+
+        &:hover, 
+        &:focus {
+            background-color: $grey-6;
+            border-color: $grey-6;
+            color: white;
+            text-decoration: none;
+        }
+
+        &:active{background-color: $grey-5;}
+    }
+}
 
 #container {
     margin: 0 auto;
-    //width: 800px;
-}
-.section {
-    border-bottom: 5px solid #ccc;
-    padding: 20px;
-    padding-top: 80px;
-}
-.section p:last-child {
-    margin-bottom: 0;
+    //    min-width: 300px;
+    //    max-width: 1200px;
+
+    section {
+        border-bottom: 5px solid #ccc;
+
+        .sect-containers{
+            margin: auto;
+            min-width: 300px;
+            max-width: 1200px;
+            padding: 60px 8vw 60px 8vw;
+            @media (max-width: $break-medium){padding: 30px 4vw 30px 4vw;}
+        }
+
+        .vidwidget{
+            padding: 0px 100px;
+            margin-top: 40px;
+            position: relative;
+
+            .vid-container{
+                overflow: hidden;height: 100%;left: 10%;right: 10%;position: absolute;
+            }
+
+            .cmd{
+                position: absolute;
+                top: 50%;
+                width: 60px;
+                height: 60px;
+                margin-top: -30px;
+                background: url("/img/icons.png") -2px -1px repeat;
+                background-repeat: no-repeat;
+                background-size: 120px 120px;
+                border-radius: 30px;
+                border: solid black 1px;
+                cursor: pointer;
+                &.inactive{opacity: 0.3; cursor: auto;}
+
+                &.cmd-prev{left: 0;}
+                &.cmd-prev:hover{border-color: $dark-green; background-position: -2px -61px;}
+                &.cmd-prev.inactive{border-color: black; background-position: -2px -1px;}
+
+                &.cmd-next{right: 0; background-position: -58px -1px;}
+                &.cmd-next:hover{border-color: $dark-green; background-position: -58px -61px;}
+                &.cmd-next.inactive{border-color: black; background-position: -58px -1px;}
+
+
+                &.inactive:hover{opacity: 0.3;}
+            }
+
+            .vid{
+                position: absolute;
+                width: 100%;
+                //                left: 10%; right: 10%;
+                @media (max-width: $break-medium){left: 4%; right: 4%;}
+
+                background-color: $grey-2;
+                transition: all 0.3s ease !important;
+
+                &.left{transform: translate3d(-120%, 0, 0);}
+                &.right{transform: translate3d(120%, 0, 0);}
+                &.unanimated{transition: none !important;}
+
+                .vidtitle{
+                    padding: 0 20px;
+                }
+
+                .vidtxt{
+                    padding: 0 20px 20px 20px;
+
+                    i{
+                        font-style: normal;
+                        font-weight: 600;
+                        color: $dark-green;
+                    }
+                    b{
+                        font-weight: 400;
+                    }
+                    a{
+                        color: black;
+                        font-style: italic;
+                        position: relative;
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            top: 20px; right: 0; width: 100%;
+                            height: 1px;
+                            background-color: $grey-6;
+                            text-align: center;
+                        }
+                    }
+                }
+
+
+            }
+        }
+        .sectlegend{
+            text-align: center;
+            font-style: italic;
+            color: $medium-grey;
+        }
+
+        .maintitle{
+            margin: 0;
+        }
+
+        &.bio{
+            padding: 110px 40px 70px 40px;
+        }
+
+        &#section-1{
+            .vidwidget{height: 660px};
+
+            .maintitle{
+                text-align: center;
+                span{font-size: 4vw;}
+            }
+        }
+
+        &#section-2{
+            .vidwidget{height: 660px};
+
+            .maintitle{
+                text-align: center;
+                span{font-size: 4vw;}
+            }
+        }
+
+        &#section-3{
+            .vidwidget{height: 660px};
+
+            .maintitle{
+                text-align: center;
+                span{font-size: 4vw;}
+            }
+        }
+
+        &#section-4{
+            .vidwidget{height: 660px};
+
+            .maintitle{
+                text-align: center;
+                span{font-size: 4vw;}
+            }
+        }
+
+        &#section-5{
+            .maintitle{
+                text-align: center;
+                span{font-size: 4vw;}
+            }
+
+            ul{
+                display: block;
+                list-style: none;
+                width: 100%;
+                padding: 0;
+                text-align: center;
+
+                li{
+                    display: inline-block;
+
+                    a{
+                        display:block;
+                        line-height: 180px;
+                        padding: 10px;
+                        width: 200px; height: 200px;
+                        background-color: $grey-2;
+                        @media (max-width: $break-medium){width: 90px; height: 90px;}
+                        
+                        &:hover{background-color: $grey-1;}
+                    }
+
+                    img{
+                        display: inline-block;
+                        vertical-align: middle;
+                        max-width: 100%;
+                        max-height: 100%;
+                        margin: auto;
+                    }
+                }
+
+            }
+        }
+
+        &#section-6{
+            .maintitle{
+                text-align: center;
+                span{font-size: 4vw;}
+            }
+
+            border: none;
+            background: $dark-grey;
+
+            .sect-containers{
+                padding: 10px 0 10px 0;
+            }
+
+            h1{margin: 20px 0;}
+        }
+    }
 }
 
-.videoWrapper {
-	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
-	height: 0;
-}
-.videoWrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
