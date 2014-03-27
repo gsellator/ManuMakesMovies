@@ -15,7 +15,7 @@ h1, h2{
     @media (max-width: $break-large){font-size: 1.8vw;}
     @media (max-width: $break-medium){font-size: 2.4vw;}
     @media (max-width: $break-small){font-size: 5vw;}
-    @media (max-width: $break-xsmall){font-size: 12px;}
+    @media (max-width: $break-xsmall){font-size: 13px;}
 }
 
 html, body, input, button, select, textarea, table, h3, h4, h5, h6 {
@@ -51,6 +51,18 @@ nav{
     width: 100%;
     border-bottom: solid $dark-green 1px;
 
+    .headtitle{
+        float: left;
+        padding-left: 0.7vw;
+
+        h1, h1 span{
+            font-size: 2.2vw;
+            line-height: 3vw;
+            margin: 0;
+            @media (max-width: $break-medium){font-size: 18px; line-height: 22px;}
+        }
+    }
+
     ul{
         position: absolute;
         bottom: 0;
@@ -58,6 +70,7 @@ nav{
         padding: 0;
         width: 60%;
         right: 0;
+        @media (max-width: $break-medium){display: none;}
 
         li{
             display: inline-block;
@@ -71,24 +84,6 @@ nav{
         }
     }
 }
-
-.headtitle{
-    float: left;
-    padding-left: 0.7vw;
-
-    h1, h1 span{
-        font-size: 2.2vw;
-        line-height: 3vw;
-        margin: 0;
-    }
-}
-
-.maintitle span{
-    font-size: 6.2vw;
-    line-height: 5vw;
-    margin: 0;
-}
-
 
 .videoWrapper {
     position: relative;
@@ -111,6 +106,7 @@ nav{
 
 .form{
     margin-top: 10px;
+    @media (max-width: $break-medium){margin-top: 0;}
     text-align: center;
     padding: 20px;;
 
@@ -127,6 +123,7 @@ nav{
     .field{
         position: relative;
         margin: 0 10%;
+        @media (max-width: $break-medium){margin: 0;}
         text-align: left;
 
         input, textarea{
@@ -172,22 +169,22 @@ nav{
     padding: 0 12px;
     height: 38px;
     line-height: 34px;
-    min-width: 88px;
+    min-width: 120px;
     border-radius: 4px;
     text-align: center;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    color: white;
+    color: $grey-6;
     border: 1px solid $grey-6;
-    background-color: $grey-6;
-    border-color: $grey-6;
+    background-color: transparent;
+
     &:disabled{opacity: 0.4;}
 
     &:hover,
     &:focus {
-        background-color: transparent;
+        background-color: $grey-6;
         border-color: $grey-6;
         color: white;
         text-decoration: none;
@@ -195,31 +192,29 @@ nav{
         &:disabled{background-color: $grey-6;}
     }
 
-    &:active{background-color: $medium-grey;}
+    &:active{background-color: $grey-5;}
+}
 
-    &.dark{
-        background-color: $dark-grey;
-        border-color: $dark-grey;
-
-        &:hover, 
-        &:focus {
-            background-color: $grey-6;
-            border-color: $grey-6;
-            color: white;
-            text-decoration: none;
-        }
-
-        &:active{background-color: $grey-5;}
-    }
+.noty{
+    display: none !important;
 }
 
 #container {
     margin: 0 auto;
+    overflow: hidden;
     //    min-width: 300px;
     //    max-width: 1200px;
 
     section {
         border-bottom: 5px solid #ccc;
+
+        .title{
+            text-align: center;
+            span{
+                font-size: 4vw;
+                @media (max-width: $break-medium){font-size: 7vw;}
+            }
+        }
 
         .sect-containers{
             margin: auto;
@@ -266,48 +261,56 @@ nav{
 
             .vid{
                 position: absolute;
-                width: 100%;
                 //                left: 10%; right: 10%;
                 @media (max-width: $break-medium){left: 4%; right: 4%;}
-
                 background-color: $grey-2;
                 transition: all 0.3s ease !important;
+                left: 0;
+                right: 0;
 
                 &.left{transform: translate3d(-120%, 0, 0);}
                 &.right{transform: translate3d(120%, 0, 0);}
                 &.unanimated{transition: none !important;}
 
-                .vidtitle{
-                    padding: 0 20px;
-                }
+                .txtWrapper{
+                    padding-top: 15px;
+                    border-bottom: solid $grey-2 15px;
+                    max-height: 220px;
+                    overflow: auto;
 
-                .vidtxt{
-                    padding: 0 20px 20px 20px;
-
-                    i{
-                        font-style: normal;
-                        font-weight: 600;
-                        color: $dark-green;
-                    }
-                    b{
+                    .vidtitle{
+                        margin: 0 0 15px 0;
+                        padding: 0 20px;
                         font-weight: 400;
+                        .rank{color: $dark-green;}
                     }
-                    a{
-                        color: black;
-                        font-style: italic;
-                        position: relative;
-                        &:after {
-                            content: "";
-                            position: absolute;
-                            top: 20px; right: 0; width: 100%;
-                            height: 1px;
-                            background-color: $grey-6;
-                            text-align: center;
+
+                    .vidtxt{
+                        padding: 0 20px 0 20px;
+
+                        i{
+                            font-style: normal;
+                            font-weight: 600;
+                            color: $dark-green;
+                        }
+                        b{
+                            font-weight: 400;
+                        }
+                        a{
+                            color: black;
+                            font-style: italic;
+                            position: relative;
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                top: 20px; right: 0; width: 100%;
+                                height: 1px;
+                                background-color: $grey-6;
+                                text-align: center;
+                            }
                         }
                     }
                 }
-
-
             }
         }
         .sectlegend{
@@ -322,49 +325,59 @@ nav{
 
         &.bio{
             padding: 110px 40px 70px 40px;
+            @media (max-width: $break-medium){padding: 60px 10px 20px 10px;}
+
+            .maintitle{
+                text-align: center;
+
+                span{
+                    font-size: 6.2vw;
+                    margin: 0;
+                    @media (max-width: $break-medium){font-size: 8vw;}
+                }
+            }
+
+            .biotxt{
+                text-align: center;
+            }
         }
 
         &#section-1{
-            .vidwidget{height: 660px};
-
-            .maintitle{
-                text-align: center;
-                span{font-size: 4vw;}
-            }
+            .vidwidget{
+                height: 660px;
+                @media (max-width: $break-medium){height: 90vw;}
+                @media (max-width: $break-xsmall){height: 480px;}
+            };
         }
 
         &#section-2{
-            .vidwidget{height: 660px};
+            .vidwidget{
+                height: 660px;
+                @media (max-width: $break-medium){height: 90vw;}
+                @media (max-width: $break-xsmall){height: 480px;}
+            };
 
-            .maintitle{
-                text-align: center;
-                span{font-size: 4vw;}
-            }
+
         }
 
         &#section-3{
-            .vidwidget{height: 660px};
-
-            .maintitle{
-                text-align: center;
-                span{font-size: 4vw;}
-            }
+            .vidwidget{
+                height: 660px;
+                @media (max-width: $break-medium){height: 70vw;}
+                @media (max-width: $break-xsmall){height: 320px;}
+            };
         }
 
         &#section-4{
-            .vidwidget{height: 660px};
-
-            .maintitle{
-                text-align: center;
-                span{font-size: 4vw;}
-            }
+            .vidwidget{
+                height: 660px;
+                @media (max-width: $break-medium){height: 55vw;}
+                @media (max-width: $break-xsmall){height: 270px;}
+            };
         }
 
         &#section-5{
-            .maintitle{
-                text-align: center;
-                span{font-size: 4vw;}
-            }
+
 
             ul{
                 display: block;
@@ -382,8 +395,8 @@ nav{
                         padding: 10px;
                         width: 200px; height: 200px;
                         background-color: $grey-2;
-                        @media (max-width: $break-medium){width: 90px; height: 90px;}
-                        
+                        @media (max-width: $break-medium){width: 90px; height: 90px; line-height: 70px;}
+
                         &:hover{background-color: $grey-1;}
                     }
 
@@ -400,10 +413,7 @@ nav{
         }
 
         &#section-6{
-            .maintitle{
-                text-align: center;
-                span{font-size: 4vw;}
-            }
+
 
             border: none;
             background: $dark-grey;

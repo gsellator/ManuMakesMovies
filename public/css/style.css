@@ -48,7 +48,7 @@ h2 {
 
 @media (max-width: 500px) {
   * {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
@@ -100,6 +100,26 @@ nav {
   border-bottom: solid #62b2b1 1px;
 }
 
+nav .headtitle {
+  float: left;
+  padding-left: 0.7vw;
+}
+
+nav .headtitle h1,
+nav .headtitle h1 span {
+  font-size: 2.2vw;
+  line-height: 3vw;
+  margin: 0;
+}
+
+@media (max-width: 820px) {
+  nav .headtitle h1,
+  nav .headtitle h1 span {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
 nav ul {
   position: absolute;
   bottom: 0;
@@ -107,6 +127,12 @@ nav ul {
   padding: 0;
   width: 60%;
   right: 0;
+}
+
+@media (max-width: 820px) {
+  nav ul {
+    display: none;
+  }
 }
 
 nav ul li {
@@ -121,24 +147,6 @@ nav ul li.current {
 
 nav ul li.current a {
   color: white;
-}
-
-.headtitle {
-  float: left;
-  padding-left: 0.7vw;
-}
-
-.headtitle h1,
-.headtitle h1 span {
-  font-size: 2.2vw;
-  line-height: 3vw;
-  margin: 0;
-}
-
-.maintitle span {
-  font-size: 6.2vw;
-  line-height: 5vw;
-  margin: 0;
 }
 
 .videoWrapper {
@@ -175,6 +183,12 @@ nav ul li.current a {
   padding: 20px;
 }
 
+@media (max-width: 820px) {
+  .form {
+    margin-top: 0;
+  }
+}
+
 .form h1 {
   color: white;
   margin: 0;
@@ -189,6 +203,12 @@ nav ul li.current a {
   position: relative;
   margin: 0 10%;
   text-align: left;
+}
+
+@media (max-width: 820px) {
+  .form .field {
+    margin: 0;
+  }
 }
 
 .form .field input,
@@ -233,16 +253,15 @@ nav ul li.current a {
   padding: 0 12px;
   height: 38px;
   line-height: 34px;
-  min-width: 88px;
+  min-width: 120px;
   border-radius: 4px;
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: white;
+  color: #b1b1b1;
   border: 1px solid #b1b1b1;
-  background-color: #b1b1b1;
-  border-color: #b1b1b1;
+  background-color: transparent;
 }
 
 .btn:disabled {
@@ -251,7 +270,7 @@ nav ul li.current a {
 
 .btn:hover,
 .btn:focus {
-  background-color: transparent;
+  background-color: #b1b1b1;
   border-color: #b1b1b1;
   color: white;
   text-decoration: none;
@@ -264,32 +283,34 @@ nav ul li.current a {
 }
 
 .btn:active {
-  background-color: #5f5f5f;
-}
-
-.btn.dark {
-  background-color: #3e3d40;
-  border-color: #3e3d40;
-}
-
-.btn.dark:hover,
-.btn.dark:focus {
-  background-color: #b1b1b1;
-  border-color: #b1b1b1;
-  color: white;
-  text-decoration: none;
-}
-
-.btn.dark:active {
   background-color: #c9c9c9;
+}
+
+.noty {
+  display: none !important;
 }
 
 #container {
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #container section {
   border-bottom: 5px solid #ccc;
+}
+
+#container section .title {
+  text-align: center;
+}
+
+#container section .title span {
+  font-size: 4vw;
+}
+
+@media (max-width: 820px) {
+  #container section .title span {
+    font-size: 7vw;
+  }
 }
 
 #container section .sect-containers {
@@ -374,10 +395,11 @@ nav ul li.current a {
 
 #container section .vidwidget .vid {
   position: absolute;
-  width: 100%;
   background-color: #f1f1f1;
   -webkit-transition: all 0.3s ease !important;
   transition: all 0.3s ease !important;
+  left: 0;
+  right: 0;
 }
 
 @media (max-width: 820px) {
@@ -404,31 +426,44 @@ nav ul li.current a {
   transition: none !important;
 }
 
-#container section .vidwidget .vid .vidtitle {
+#container section .vidwidget .vid .txtWrapper {
+  padding-top: 15px;
+  border-bottom: solid #f1f1f1 15px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+#container section .vidwidget .vid .txtWrapper .vidtitle {
+  margin: 0 0 15px 0;
   padding: 0 20px;
+  font-weight: 400;
 }
 
-#container section .vidwidget .vid .vidtxt {
-  padding: 0 20px 20px 20px;
+#container section .vidwidget .vid .txtWrapper .vidtitle .rank {
+  color: #62b2b1;
 }
 
-#container section .vidwidget .vid .vidtxt i {
+#container section .vidwidget .vid .txtWrapper .vidtxt {
+  padding: 0 20px 0 20px;
+}
+
+#container section .vidwidget .vid .txtWrapper .vidtxt i {
   font-style: normal;
   font-weight: 600;
   color: #62b2b1;
 }
 
-#container section .vidwidget .vid .vidtxt b {
+#container section .vidwidget .vid .txtWrapper .vidtxt b {
   font-weight: 400;
 }
 
-#container section .vidwidget .vid .vidtxt a {
+#container section .vidwidget .vid .txtWrapper .vidtxt a {
   color: black;
   font-style: italic;
   position: relative;
 }
 
-#container section .vidwidget .vid .vidtxt a:after {
+#container section .vidwidget .vid .txtWrapper .vidtxt a:after {
   content: "";
   position: absolute;
   top: 20px;
@@ -453,60 +488,93 @@ nav ul li.current a {
   padding: 110px 40px 70px 40px;
 }
 
+@media (max-width: 820px) {
+  #container section.bio {
+    padding: 60px 10px 20px 10px;
+  }
+}
+
+#container section.bio .maintitle {
+  text-align: center;
+}
+
+#container section.bio .maintitle span {
+  font-size: 6.2vw;
+  margin: 0;
+}
+
+@media (max-width: 820px) {
+  #container section.bio .maintitle span {
+    font-size: 8vw;
+  }
+}
+
+#container section.bio .biotxt {
+  text-align: center;
+}
+
 #container section#section-1 .vidwidget {
   height: 660px;
 }
 
-#container section#section-1 .maintitle {
-  text-align: center;
+@media (max-width: 820px) {
+  #container section#section-1 .vidwidget {
+    height: 90vw;
+  }
 }
 
-#container section#section-1 .maintitle span {
-  font-size: 4vw;
+@media (max-width: 500px) {
+  #container section#section-1 .vidwidget {
+    height: 480px;
+  }
 }
 
 #container section#section-2 .vidwidget {
   height: 660px;
 }
 
-#container section#section-2 .maintitle {
-  text-align: center;
+@media (max-width: 820px) {
+  #container section#section-2 .vidwidget {
+    height: 90vw;
+  }
 }
 
-#container section#section-2 .maintitle span {
-  font-size: 4vw;
+@media (max-width: 500px) {
+  #container section#section-2 .vidwidget {
+    height: 480px;
+  }
 }
 
 #container section#section-3 .vidwidget {
   height: 660px;
 }
 
-#container section#section-3 .maintitle {
-  text-align: center;
+@media (max-width: 820px) {
+  #container section#section-3 .vidwidget {
+    height: 70vw;
+  }
 }
 
-#container section#section-3 .maintitle span {
-  font-size: 4vw;
+@media (max-width: 500px) {
+  #container section#section-3 .vidwidget {
+    height: 320px;
+  }
 }
 
 #container section#section-4 .vidwidget {
   height: 660px;
 }
 
-#container section#section-4 .maintitle {
-  text-align: center;
+@media (max-width: 820px) {
+  #container section#section-4 .vidwidget {
+    height: 55vw;
+  }
 }
 
-#container section#section-4 .maintitle span {
-  font-size: 4vw;
-}
-
-#container section#section-5 .maintitle {
-  text-align: center;
-}
-
-#container section#section-5 .maintitle span {
-  font-size: 4vw;
+@media (max-width: 500px) {
+  #container section#section-4 .vidwidget {
+    height: 270px;
+  }
 }
 
 #container section#section-5 ul {
@@ -534,6 +602,7 @@ nav ul li.current a {
   #container section#section-5 ul li a {
     width: 90px;
     height: 90px;
+    line-height: 70px;
   }
 }
 
@@ -552,14 +621,6 @@ nav ul li.current a {
 #container section#section-6 {
   border: none;
   background: #3e3d40;
-}
-
-#container section#section-6 .maintitle {
-  text-align: center;
-}
-
-#container section#section-6 .maintitle span {
-  font-size: 4vw;
 }
 
 #container section#section-6 .sect-containers {

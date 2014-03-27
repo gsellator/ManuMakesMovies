@@ -12,6 +12,10 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $( ".noty" ).each(function( index ) {
+        var n = noty({text: $(this).text(), layout: 'bottom', theme: 'notyTheme'});
+    });
+
     $('.cmd-prev').click(function(e){
         var currentVid = $(this).parent().find('.current');
         var currentNum = parseInt(/vid-(\d+)/.exec(currentVid.attr("class"))[1], 10);

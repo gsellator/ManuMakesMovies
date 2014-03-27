@@ -62,11 +62,27 @@ module.exports = function(grunt) {
                 dest: 'pkg/',
             },
             server7: {
-                src: 'public/js/bower_components/jquery/dist/jquery.min.js',
+                src: 'public/js/script.js',
                 dest: 'pkg/',
             },
             server8: {
+                src: 'public/js/bower_components/jquery/dist/jquery.min.js',
+                dest: 'pkg/',
+            },
+            server9: {
                 src: 'public/js/bower_components/jQuery-One-Page-Nav/jquery.nav.js',
+                dest: 'pkg/',
+            },
+            server10: {
+                src: 'public/js/noty-theme.js',
+                dest: 'pkg/',
+            },
+            server11: {
+                src: 'public/js/bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js',
+                dest: 'pkg/',
+            },
+            server12: {
+                src: 'templates/**/*',
                 dest: 'pkg/',
             }
         },

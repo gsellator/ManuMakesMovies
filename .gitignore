@@ -1,4 +1,5 @@
-node_modules/
-public/js/bower_components/
+.accounts
 .ftppass
 pkg/
+node_modules/
+public/js/bower_components/

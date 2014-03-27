@@ -1,5 +1,2 @@
-Post mail in app.js
-External login/password file for the gmail account
-Imrpove responsive support
 Connect to mongo
 Admin page
