@@ -485,12 +485,12 @@ nav ul li.current a {
 }
 
 #container section.bio {
-  padding: 110px 40px 70px 40px;
+  padding: 40px 40px 10px 40px;
 }
 
 @media (max-width: 820px) {
   #container section.bio {
-    padding: 60px 10px 20px 10px;
+    padding: 20px 10px 10px 10px;
   }
 }
 

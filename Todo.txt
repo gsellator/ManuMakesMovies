@@ -1,2 +1,4 @@
-Connect to mongo
-Admin page
+0/ Bio / Mots clés / description
+1/ Google.fr associé avec manumakesmovies@gmail.com
+2/ Connect to mongo
+3/ Admin page

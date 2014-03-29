@@ -1,17 +1,18 @@
 var express = require('express');
 
 // App Setup
-var app = express();
+var app = express(),
+    fs = require('fs');
+
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
-var fs = require('fs');
-var mailpass = __dirname + '/.accounts';
 
 //Helpers
+var accountsFile = __dirname + '/.accounts';
 var getMailCredentials = function(callback){
     //Read Login & password of the gmail account sending this mail in '/.accounts'
-    fs.readFile(mailpass, 'utf8', function (err, data) {
+    fs.readFile(accountsFile, 'utf8', function (err, data) {
         if (err) {
             console.log('Error: ' + err);
             return;
